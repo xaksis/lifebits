@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+   <h1> List of all users</h1>
+    {% for user in users_list %}
+      <h2><a href="{% url user slug=user.handle %}">{{ user.first_name}} {{user.last_name}}</a></h2>
+      <p>
+        {{ user.created_at }} |
+        {% with total=user.lists|length %}
+            {{ total }} list{{ total|pluralize }}
+        {% endwith %}
+      </p>
+    {% endfor %}
+{% endblock %}

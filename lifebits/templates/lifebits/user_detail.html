@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Hi {{ user.first_name}} {{user.last_name}}!</a></h2>
+    <h3>Details</h3>
+        Account created at: {{ user.created_at }} <br/>
+        Email: {{ user.email}} <br/>
+        {% with total=user.lists|length %}
+            {{ total }} list{{ total|pluralize }}
+        {% endwith %}
+{% endblock %}
